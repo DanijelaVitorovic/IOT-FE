@@ -1,0 +1,17 @@
+.wide-modal .modal-dialog {
+  min-width: 98%;
+  overflow: auto;
+  min-height: 100%;
+}
+
+.modal-content {
+  border-radius: 12px !important;
+}
+
+.second-modal {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.modal-title {
+  text-shadow: 0 0.1px 0.3px #1c2842d5;
+}

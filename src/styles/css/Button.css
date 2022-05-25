@@ -1,0 +1,12 @@
+.MuiButton-containedPrimary,
+.btn-primary {
+  border-radius: 18px !important;
+  background-color: #1dc4e9 !important;
+}
+.MuiButton-containedPrimary:hover {
+  background-color: rgba(29, 227, 217, 0.767) !important;
+}
+
+.btn-primary {
+  border: none;
+}

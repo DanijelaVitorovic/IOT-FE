@@ -1,0 +1,120 @@
+.attachment-wrapper,
+.pdf-attachment-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 40vmax;
+  max-height: 42vmax;
+  /* margin-right: -2vw; */
+  border: 1px solid rgba(128, 128, 128, 0.473) !important;
+}
+
+.attachment-wrapper .pg-viewer-wrapper {
+  min-height: 40vmax !important;
+  max-height: 42vmax;
+  display: contents !important;
+}
+.attachment-wrapper .pg-viewer-container {
+  display: flex;
+  flex-flow: column wrap !important;
+  min-height: 40vmax;
+  max-height: 42vmax !important;
+}
+
+.attachment-wrapper #pg-viewer.pg-viewer {
+  position: relative;
+  height: 38vmax !important;
+  margin: auto;
+  overflow: auto;
+}
+
+@media screen and (max-width: 760px) {
+  .attachment-wrapper #pg-viewer.pg-viewer {
+    position: relative;
+    height: 33vmax !important;
+    margin: auto;
+    overflow: auto;
+  }
+}
+
+.TransformComponent-module_container__3NwNd {
+  position: relative;
+  width: 100% !important;
+  height: fit-content;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  position: relative;
+  border: 0;
+  padding: 15px 25px;
+  display: inline-block;
+  text-align: center;
+  color: white;
+}
+
+.tools-button {
+  color: gray !important;
+}
+
+.pdf-attachment-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 40vmax;
+  max-height: 42vmax;
+  margin-right: -2vw;
+  border: 1px solid rgba(128, 128, 128, 0.479) !important;
+}
+
+.pdf-previewer {
+  overflow: scroll;
+  max-height: 500px;
+  margin: auto;
+}
+
+.pdf-attachment-wrapper embed {
+  position: relative;
+  width: 100%;
+  min-height: 40vmax;
+  max-height: 42vmax;
+  margin-right: -2vw;
+  border: 1px solid gray !important;
+  background: white !important;
+}
+
+.file-preview-wrapper-div {
+  min-width: 80vw;
+  height: 40vmax;
+  margin: 1vmax;
+  border: 2px solid lightslategray !important;
+  /* padding: 1vmax 5vmax 0 5vmax !important; */
+  overflow: auto;
+}
+
+.file-preview-wrapper-div-with-margins {
+  position: relative;
+  min-width: max-content;
+  min-height: 40vmax;
+  vertical-align: middle !important;
+  padding: 1vmax 5vmax 0 5vmax !important;
+}
+
+.file-preview-wrapper-div-with-margins .pg-viewer-wrapper {
+  min-height: 40vmax !important;
+}
+.file-preview-wrapper-div-with-margins #pg-photo-container {
+  min-height: 40vmax !important;
+  min-width: 100% !important;
+}
+.file-preview-wrapper-div-with-margins #pg-photo-container img {
+  /* width: 100% !important; */
+  width: max-content !important;
+  min-height: 100% !important;
+}

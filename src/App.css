@@ -1,0 +1,141 @@
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0 !important;
+  padding-bottom: 0.5rem;
+}
+
+.fas:hover,
+.fab:hover,
+.MuiSvgIcon-root:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.flip-horizontal {
+  transform: rotate(-180deg) !important;
+}
+
+.preview-style[disabled] {
+  pointer-events: none !important;
+  opacity: 0.5;
+}
+
+.preview-style-less-opacity[disabled] {
+  pointer-events: none !important;
+  opacity: 0.98;
+}
+
+.logout-icon {
+  font-size: 28px !important;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked {
+  background-color: #04a9f5 !important;
+}
+.MuiSwitch-colorSecondary.Mui-checked {
+  color: #04a9f5 !important;
+}
+
+/*Checked row */
+.Mui-selected {
+  background-color: #1de9c72f !important;
+}
+.MuiSwitch-colorSecondary {
+  color: #04a9f5 !important;
+}
+
+.qrCode-img {
+  max-width: 300px !important;
+  height: 300px;
+}
+
+/* Menu scroll bar */
+.ps__rail-y:hover,
+.ps__rail-y:focus,
+.ps__rail-y.ps--clicking {
+  background: none !important;
+  cursor: pointer;
+}
+
+.card-rounded-edges {
+  border-radius: 18px !important;
+}
+
+.wrapper-fade-in {
+  -webkit-animation: fadein 1.7s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1.7s; /* Firefox < 16 */
+  -ms-animation: fadein 1.7s; /* Internet Explorer */
+  -o-animation: fadein 1.7s; /* Opera < 12.1 */
+  animation: fadein 1.7s;
+}
+
+.wrapper-fade-in-short {
+  -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 0.5s; /* Firefox < 16 */
+  -ms-animation: fadein 0.5s; /* Internet Explorer */
+  -o-animation: fadein 0.5s; /* Opera < 12.1 */
+  animation: fadein 0.5s;
+}
+
+.wrapper-fade-in-long {
+  -webkit-animation: fadein 2.3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2.3s; /* Firefox < 16 */
+  -ms-animation: fadein 2.3s; /* Internet Explorer */
+  -o-animation: fadein 2.3s; /* Opera < 12.1 */
+  animation: fadein 2.3s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(248, 248, 248);
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(-115deg, #bce6ff 40%, #e4e4e4 100%);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(-155deg, #a8d6f1 50%, #e4e4e4 100%);
+}
+
+::-webkit-scrollbar-track:hover {
+  background: rgb(241, 241, 241);
+}

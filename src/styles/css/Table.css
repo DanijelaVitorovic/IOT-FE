@@ -1,0 +1,60 @@
+.default-table-height {
+  height: 25em;
+  overflow-y: auto;
+}
+
+.table {
+  table-layout: fixed;
+}
+
+.table td {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: rgb(70, 69, 69);
+}
+
+/* .table th:hover, */
+.table td:hover {
+  white-space: normal !important;
+  overflow: visible;
+}
+
+table th {
+  white-space: normal !important;
+  color: rgb(104, 103, 103);
+}
+
+td .fas,
+td .fab,
+.update-button .fas {
+  font-size: 24px;
+  color: rgb(104, 103, 103);
+}
+
+.table-header th {
+  position: sticky !important;
+  top: 0 !important;
+}
+
+/* Table pagination */
+.MuiTablePagination-toolbar {
+  color: rgb(31, 31, 31) !important;
+}
+.MuiTablePagination-displayedRows {
+  padding-top: 1em;
+}
+.MuiTablePagination-selectLabel {
+  padding-top: 1em;
+}
+/* *** */
+
+.table-card-style {
+  border-radius: 15px !important;
+  padding: 1%;
+}
+
+.table-card-header-style {
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+}
