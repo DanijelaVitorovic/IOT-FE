@@ -4,6 +4,7 @@ import securityReducer from './security';
 import roleReducer from './role';
 import navigationReducer from './navigation';
 import translationsReducer from './translations';
+import fridgeReducer from './fridge';
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     roleReducer,
     navigationReducer,
     translationsReducer,
+    fridgeReducer,
   },
 });
 

@@ -41,6 +41,7 @@ import AuthContext from './store/auth_context';
 import { securityActions } from './reducers/security';
 import { locationPath } from './constants/app-routes';
 import UnauthorizedAccessPage from './securityUtils/UnauthorizedAccessPage';
+import FridgeList from './components/Containers/FridgeList';
 
 const jwtDecode = require('jwt-decode');
 const jwtToken = localStorage.getItem(localStorageConstants.JWT_TOKEN);
@@ -149,6 +150,11 @@ function App() {
           exact
           path={locationPath.ROLE_LIST}
           component={checkRoute(RoleList, locationPath.ROLE_LIST, items)}
+        />
+        <SecuredRoute
+          exact
+          path={locationPath.FRIDGE_LIST}
+          component={checkRoute(FridgeList, locationPath.FRIDGE_LIST, items)}
         />
         <Route path={'/*'} component={UnauthorizedAccessPage} />
       </Switch>

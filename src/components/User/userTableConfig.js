@@ -69,25 +69,6 @@ export const tableConfig = (props) => {
         icon: 'fas fa-lock fa-2x',
       },
       {
-        key: 'changeStatus2fa',
-        width: '',
-        className: 'text-center',
-        type: columnTypes.condition_action,
-        actions: [
-          {
-            onClick_ca: setUserStatusDeactivate2fa?.action,
-            icon_ca: 'fas fa-times-circle fa-2x',
-            tooltipTitle_ca: setUserStatusDeactivate2fa?.tooltipTitle,
-          },
-          {
-            onClick_ca: edit2faRegistrationWhenStatusPassive?.action,
-            icon_ca: 'fas fa-play-circle fa-2x',
-            tooltipTitle_ca: edit2faRegistrationWhenStatusPassive?.tooltipTitle,
-          },
-        ],
-        actionCondition: isActiveOrPassive2FA,
-      },
-      {
         key: 'delete',
         width: '',
         className: 'text-center',

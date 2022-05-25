@@ -4,7 +4,7 @@ import '../../styles/css/Button.css';
 import withTranslations from '../../utils/HighOrderComponent';
 
 const ButtonSave = (props) => {
-  const { variant, disabled, gt, label } = props || {};
+  const { variant, disabled, gt, label, signalForPreview } = props || {};
   const variantValue = variant || 'contained';
   const buttonLabel = label || gt.Button.save;
   return (
@@ -14,7 +14,7 @@ const ButtonSave = (props) => {
       type="submit"
       disabled={disabled}
     >
-      {buttonLabel}
+      {!signalForPreview ? buttonLabel : gt.Button.control}
     </Button>
   );
 };

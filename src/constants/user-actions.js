@@ -1,5 +1,6 @@
 export const userActions = {
   MENU_USER: 'MENU_USER',
   MENU_ROLE: 'MENU_ROLE',
+  MENU_FRIDGE: 'MENU_FRIDGE',
   USER_CREATE: 'USER_CREATE',
 };

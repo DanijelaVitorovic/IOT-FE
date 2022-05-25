@@ -3,6 +3,7 @@ export const translation = {
     userRequestPanel: 'Korisnički panel',
     userList: 'Korisnici',
     roleList: 'Role',
+    fridgeList: 'Frižideri',
   },
 
   Login: {
@@ -31,7 +32,7 @@ export const translation = {
   },
 
   Global: {
-    appName: 'Core App',
+    appName: 'Fridge',
     Button: {
       save: 'Sačuvaj',
       edit: 'Izmeni',
@@ -43,6 +44,7 @@ export const translation = {
       yes: 'DA',
       no: 'NE',
       confirm: 'U redu',
+      control: 'Proveri',
     },
     Tooltips: {
       logout: 'Odjava',
@@ -262,6 +264,50 @@ export const translation = {
       },
       TransferList: {
         Choices: 'Izbor akcija',
+      },
+    },
+  },
+
+  FridgePage: {
+    FridgeTable: {
+      tableTitle: 'Frižideri',
+      HeaderColumns: {
+        name: 'Naziv',
+        edit: 'Izmena',
+        delete: 'Brisanje',
+        details: 'Pregled',
+      },
+      Tooltips: {
+        addItem: 'Dodaj novi frižider',
+      },
+      ConfirmDialog: {
+        deleteMessage: 'Da li zaista želite da obrišete frižider?',
+      },
+      NotificationMessages: {
+        title: 'Frižideri',
+        errorTitle: 'Greška',
+        successCreation: 'Frižider je uspešno sačuvan',
+        successUpdate: 'Frižider je uspešno izmenjen',
+        successDelete: 'Frižider je uspešno obrisan',
+      },
+    },
+    Modals: {
+      modalForAddTitle: 'Dodavanje novog frižidera',
+      modalForUpdateTitle: 'Izmena frižidera',
+      modalForDetailsTitle: 'Trenutno stanje',
+    },
+    Form: {
+      Placeholders: {
+        fridgeName: 'Naziv',
+        milkYes: 'Mleko je trenutno na stanju',
+        milkNo: 'Mleko trenutno nije na stanju',
+        eggsYes: 'Jaja su trenutno na stanju',
+        eggsNo: 'Jaja trenutno nisu na stanju',
+        mealYes: 'Meso je trenutno na stanju',
+        mealNo: 'Meso trenutno nije na stanju',
+      },
+      Errors: {
+        fridgeName: 'Potrebno je uneti naziv frižidera',
       },
     },
   },

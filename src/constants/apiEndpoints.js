@@ -52,3 +52,9 @@ export const attachmentDownloadPath = (uuidDocName, controllerReference) =>
 
 // FILTER
 export const filterPageablePath = () => `/api/filter/search`;
+
+//FRIDGE
+export const fridgePath = () => '/api/fridge';
+export const fridgeIdPath = (id) => `/api/fridge/${id}`;
+export const fridgePageablePath = (pageNumber, pageSize) =>
+  `/api/fridge/${pageNumber}/${pageSize}`;
