@@ -1,25 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { errorMessageHandler, basicFormValidationHandler } from '../../utils';
-import { isEmpty } from 'lodash';
-import InputField from '../Reusable/InputField';
 import ButtonSave from '../Reusable/ButtonSave';
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const FridgeFormForDetails = (props) => {
-  const {
-      fetchFridgeById,
-      dispatch,
-      translations,
-      error,
-      fridgeForDetails,
-      fridgeFromReducer,
-    } = props || {},
-    { Placeholders, Errors } = translations || {};
+  const { translations } = props || {},
+    { Placeholders } = translations || {};
+  let signal = false;
+  let temperatureUrl = `http://172.20.222.249:5000/temperatura`;
+  let humidityUrl = `http://172.20.222.249:5000/vlaznost`;
+  let distanceUrl = `http://172.20.222.249:5000/distanca`;
+  let distance2Url = `http://172.20.222.249:5000/distanca2`;
+
+  const [humidity, setHumidity] = useState(null);
+  const [temperature, setTemperature] = useState(null);
+  const [distance, setDistance] = useState(null);
+  const [distance2, setDistance2] = useState(null);
+
+  const fetchAllData = () => {
+    axios.get(temperatureUrl).then((response) => {
+      {
+        setTimeout(() => {
+          setTemperature(response.data);
+        }, 10);
+      }
+    });
+    axios.get(humidityUrl).then((response) => {
+      {
+        setTimeout(() => {
+          setHumidity(response.data);
+        }, 10);
+      }
+    });
+    axios.get(distanceUrl).then((response) => {
+      {
+        setTimeout(() => {
+          setDistance(response.data);
+        }, 10);
+      }
+    });
+    axios.get(distance2Url).then((response) => {
+      {
+        setTimeout(() => {
+          setDistance2(response.data);
+        }, 10);
+      }
+    });
+  };
 
   useEffect(() => {
-    dispatch(fetchFridgeById(fridgeForDetails?.id));
-  }, [fridgeForDetails, dispatch]);
+    if (!signal) {
+      fetchAllData();
+      signal = true;
+    }
+  }, []);
+
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    fetchAllData();
+  };
 
   const yesIcon = (
     <div style={{ marginLeft: '-20%' }}>
@@ -37,41 +77,42 @@ const FridgeFormForDetails = (props) => {
     </div>
   );
 
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
-
-    dispatch(fetchFridgeById(fridgeFromReducer?.id));
-  };
-
   return (
     <form noValidate={true} onSubmit={onSubmitHandler}>
       <div>
         <Row md={12} style={{ margin: 'auto', marginLeft: '-13%' }}>
-          <div className="text-center">
+          <div className="text-center" style={{ marginLeft: '6%' }}>
+            <b>
+              {Placeholders.temperaturе} {temperature?.temp}
+            </b>
             <br></br>
-            {fridgeFromReducer.milk ? yesIcon : noIcon}
-            <div style={{ marginLeft: '15%', marginTop: '-3%' }}>
-              {fridgeFromReducer.milk
-                ? Placeholders.milkYes
-                : Placeholders.milkNo}
-            </div>
+            <b>
+              {Placeholders.humidity} {humidity?.humd}
+            </b>
+            <br></br>
+            <b>
+              {Placeholders.milk}
+              {distance?.dist && distance?.dist?.toFixed(2)}
+            </b>
+            <br></br>
+            <b>
+              {Placeholders.cheese}{' '}
+              {distance2?.dist && distance2?.dist?.toFixed(2)}
+            </b>
+            <br></br>
           </div>
           <div className="text-center">
             <br></br>
-            {fridgeFromReducer.eggs ? yesIcon : noIcon}
+            {distance?.dist < 10 ? yesIcon : noIcon}
             <div style={{ marginLeft: '15%', marginTop: '-3%' }}>
-              {fridgeFromReducer.eggs
-                ? Placeholders.eggsYes
-                : Placeholders.eggsNo}
+              {distance?.dist < 10 ? Placeholders.milkYes : Placeholders.milkNo}
             </div>
-          </div>
-          <div className="text-center">
             <br></br>
-            {fridgeFromReducer.meat ? yesIcon : noIcon}
+            {distance2?.dist < 10 ? yesIcon : noIcon}
             <div style={{ marginLeft: '15%', marginTop: '-3%' }}>
-              {fridgeFromReducer.meal
-                ? Placeholders.mealYes
-                : Placeholders.mealNo}
+              {distance2?.dist < 10
+                ? Placeholders.cheeseYes
+                : Placeholders.cheeseNo}
             </div>
           </div>
         </Row>

@@ -117,7 +117,7 @@ const FridgeTable = (props) => {
         <CustomModal
           show={details}
           hideModal={modalCloseHandler}
-          title={fridge?.name}
+          title={fridgeItem.name}
         >
           <FridgeFormForDetails
             fetchFridgeById={fetchFridgeById}
