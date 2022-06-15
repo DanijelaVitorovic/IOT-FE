@@ -8,6 +8,7 @@ import {
 import { isEmpty } from 'lodash';
 import ButtonSave from '../Reusable/ButtonSave.js';
 import InputField from '../Reusable/InputField.js';
+import axios from 'axios';
 
 const LoginForm = (props) => {
   const { translations, onLoginHandler } = props || {},
@@ -42,6 +43,8 @@ const LoginForm = (props) => {
       password,
     };
     onLoginHandler(loginRequest);
+    let url = `http://172.20.222.249:5000/setup`;
+    axios.get(url);
   };
 
   return (

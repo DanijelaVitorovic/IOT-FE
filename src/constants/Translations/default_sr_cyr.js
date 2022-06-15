@@ -300,12 +300,14 @@ export const translation = {
     Form: {
       Placeholders: {
         fridgeName: 'Назив',
+        temperaturе: 'Температура: ',
+        humidity: 'Влажност: ',
+        milk: 'Млеко: ',
+        cheese: 'Сир: ',
         milkYes: 'Млеко је тренутно на стању',
         milkNo: 'Млеко тренутно није на стању',
-        eggsYes: 'Јаја су тренутно на стању',
-        eggsNo: 'Јаја тренутно нису на стању',
-        mealYes: 'Месо је тренутно на стању',
-        mealNo: 'Месо тренутно није на стању',
+        cheeseYes: 'Сир је тренутно на стању',
+        cheeseNo: 'Сир тренутно није на стању',
       },
       Errors: {
         fridgeName: 'Потребно je унети назив фрижидера',
