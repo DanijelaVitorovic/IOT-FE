@@ -1,10 +1,12 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import CustomModal from '../Reusable/Modal/CustomModal';
 import TableContainer from '../Reusable/Table/TableContainer';
 import { tableConfig } from './fridgeTableConfig';
 import { confirmDialog } from '../Reusable/ConfirmDialog';
 import FridgeForm from './FridgeForm';
 import FridgeFormForDetails from './FridgeFormForDetails';
+import AuthContext from '../../store/auth_context';
+import { userActions } from '../../constants/user-actions';
 
 const FridgeTable = (props) => {
   const {
@@ -31,6 +33,7 @@ const FridgeTable = (props) => {
       ConfirmDialog,
       NotificationMessages,
     } = FridgeTableTranslations || {};
+  const { allowedActions } = useContext(AuthContext);
 
   const [showModal, setShowModal] = useState(false);
   const [details, setDetails] = useState(false);
@@ -76,10 +79,22 @@ const FridgeTable = (props) => {
         );
   };
 
+  const isFridgeCreationAllowed = allowedActions.includes(
+    userActions.FRIDGE_CREATE
+  );
+  const isFridgeUpdateAllowed = allowedActions.includes(
+    userActions.FRIDGE_UPDATE
+  );
+  const isFridgeDeleteAllowed = allowedActions.includes(
+    userActions.FRIDGE_DELETE
+  );
+
   const tableConfiguration = tableConfig({
     editAction: (item) => modalForUpdateShowHandler(item),
     deleteAction: (item) => fridgeDeleteHandler(item?.id),
     detailsAction: (item) => modalForDetailsShowHandler(item),
+    isFridgeUpdateAllowed: isFridgeUpdateAllowed,
+    isFridgeDeleteAllowed: isFridgeDeleteAllowed,
   });
 
   const modalTitle = fridgeItem
@@ -90,7 +105,7 @@ const FridgeTable = (props) => {
     <Fragment>
       <TableContainer
         tableId="fridges"
-        shouldRenderAdd={true}
+        shouldRenderAdd={isFridgeCreationAllowed}
         addAction={modalForAddShowHandler}
         translations={{ tableTitle, Tooltips, HeaderColumns }}
         tableConfig={tableConfiguration}

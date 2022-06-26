@@ -133,6 +133,14 @@ const UserTable = (props) => {
     dispatch(generatePassword(NotificationMessages));
   };
 
+  const isActionUserUpdateAllowed = allowedActions.includes(
+    userActions.USER_UPDATE
+  );
+
+  const isActionUserDeleteAllowed = allowedActions.includes(
+    userActions.USER_DELETE
+  );
+
   const tableConfiguration = tableConfig({
     editAction: (item) => modalForUpdateShowHandler(item),
     deleteAction: (item) =>
@@ -176,6 +184,8 @@ const UserTable = (props) => {
       tooltipTitle: Tooltips.activate2fa,
     },
     isActiveOrPassive2FA: (item) => item?.useGoogle2f,
+    isActionUserUpdateAllowed: isActionUserUpdateAllowed,
+    isActionUserDeleteAllowed: isActionUserDeleteAllowed,
   });
 
   let modalTitle = '';

@@ -1,9 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import CustomModal from '../Reusable/Modal/CustomModal';
 import TableContainer from '../Reusable/Table/TableContainer';
 import { tableConfig } from './roleTableConfig';
 import { confirmDialog } from '../Reusable/ConfirmDialog';
 import RoleForm from './RoleForm';
+import AuthContext from '../../store/auth_context';
+import { userActions } from '../../constants/user-actions';
 
 const RoleTable = (props) => {
   const {
@@ -29,6 +31,7 @@ const RoleTable = (props) => {
       ConfirmDialog,
       NotificationMessages,
     } = RoleTableTranslations || {};
+  const { allowedActions } = useContext(AuthContext);
 
   const [showModal, setShowModal] = useState(false);
   const [role, setRole] = useState(null);
@@ -63,9 +66,17 @@ const RoleTable = (props) => {
       : createRoleHandler(roleForSave, modalCloseHandler, NotificationMessages);
   };
 
+  const isRoleCreationAllowed = allowedActions.includes(
+    userActions.ROLE_CREATE
+  );
+  const isRoleUpdateAllowed = allowedActions.includes(userActions.ROLE_UPDATE);
+  const isRoleDeleteAllowed = allowedActions.includes(userActions.ROLE_DELETE);
+
   const tableConfiguration = tableConfig({
     editAction: (item) => modalForUpdateShowHandler(item),
     deleteAction: (item) => roleDeleteHandler(item?.id),
+    isRoleUpdateAllowed: isRoleUpdateAllowed,
+    isRoleDeleteAllowed: isRoleDeleteAllowed,
   });
 
   const modalTitle = role
@@ -76,7 +87,7 @@ const RoleTable = (props) => {
     <Fragment>
       <TableContainer
         tableId="roles"
-        shouldRenderAdd={true}
+        shouldRenderAdd={isRoleCreationAllowed}
         addAction={modalForAddShowHandler}
         translations={{ tableTitle, Tooltips, HeaderColumns }}
         tableConfig={tableConfiguration}
