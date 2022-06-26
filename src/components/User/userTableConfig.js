@@ -8,9 +8,8 @@ export const tableConfig = (props) => {
     setUserStatusActive,
     setUserStatusDeactive,
     isActiveOrPassive,
-    setUserStatusDeactivate2fa,
-    edit2faRegistrationWhenStatusPassive,
-    isActiveOrPassive2FA,
+    isActionUserUpdateAllowed,
+    isActionUserDeleteAllowed,
   } = props || {};
 
   return {
@@ -51,6 +50,7 @@ export const tableConfig = (props) => {
           },
         ],
         actionCondition: isActiveOrPassive,
+        condition: isActionUserUpdateAllowed,
       },
       {
         key: 'edit',
@@ -58,6 +58,7 @@ export const tableConfig = (props) => {
         className: 'text-center',
         type: columnTypes.action,
         onClick: editAction,
+        condition: isActionUserUpdateAllowed,
         icon: 'fas fa-edit fa-2x',
       },
       {
@@ -66,6 +67,7 @@ export const tableConfig = (props) => {
         className: 'text-center',
         type: columnTypes.action,
         onClick: editPasswordAction,
+        condition: isActionUserUpdateAllowed,
         icon: 'fas fa-lock fa-2x',
       },
       {
@@ -74,6 +76,7 @@ export const tableConfig = (props) => {
         className: 'text-center',
         type: columnTypes.action,
         onClick: deleteAction,
+        condition: isActionUserDeleteAllowed,
         icon: 'fas fa-trash-alt fa-2x',
       },
     ],

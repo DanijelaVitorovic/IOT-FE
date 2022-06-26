@@ -139,7 +139,7 @@ function App() {
         <SecuredRoute
           exact
           path={locationPath.DASHBOARD}
-          component={Dashboard}
+          component={FridgeList}
         />
         <SecuredRoute
           exact

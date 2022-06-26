@@ -1,7 +1,13 @@
 import { columnTypes } from '../../constants/globals';
 
 export const tableConfig = (props) => {
-  const { editAction, deleteAction, detailsAction } = props || {};
+  const {
+    editAction,
+    deleteAction,
+    detailsAction,
+    isFridgeUpdateAllowed,
+    isFridgeDeleteAllowed,
+  } = props || {};
 
   return {
     columns: [
@@ -18,6 +24,7 @@ export const tableConfig = (props) => {
         type: columnTypes.action,
         onClick: editAction,
         icon: 'fas fa-edit fa-2x',
+        condition: () => isFridgeUpdateAllowed,
       },
       {
         key: 'delete',
@@ -26,6 +33,7 @@ export const tableConfig = (props) => {
         type: columnTypes.action,
         onClick: deleteAction,
         icon: 'fas fa-trash-alt fa-2x',
+        condition: () => isFridgeDeleteAllowed,
       },
       {
         key: 'details',
